@@ -47,4 +47,14 @@ public class Film {
     public void setProducer(String producer) {
         this.producer = producer;
     }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", producer='" + producer + '\'' +
+                '}';
+    }
 }
+

@@ -10,7 +10,7 @@ import pl.hodan.filmsapplication.service.FilmsService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/film")
+@RequestMapping("/films")
 public class FilmsController {
     private final FilmsService filmsService;
 

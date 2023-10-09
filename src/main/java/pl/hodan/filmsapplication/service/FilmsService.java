@@ -21,6 +21,9 @@ public class FilmsService {
     public List<Film> getFilms() {
         return films;
     }
+    public Film getLastFilm(){
+       return films.get(films.size()-1);
+    }
 
     @EmailAspect
     public boolean addFilm(Film film) {

@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
+    final private FilmsService filmsService;
     final private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String sender;
-    @Value("${email.addressee}")
-    private String addressee;
+    @Value("${email.recipient}")
+    private String recipient;
 
-    public EmailService(JavaMailSender javaMailSender) {
+    public EmailService(FilmsService filmsService, JavaMailSender javaMailSender) {
+        this.filmsService = filmsService;
         this.javaMailSender = javaMailSender;
     }
 
@@ -21,9 +23,9 @@ public class EmailService {
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setFrom(sender);
-        message.setTo(addressee);
-        message.setSubject("Hello world");
-        message.setText("Hello");
+        message.setTo(recipient);
+        message.setSubject("Co tam");
+        message.setText(filmsService.getLastFilm().toString());
 
         javaMailSender.send(message);
     }
